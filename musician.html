@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <title>Music</title>
+ <h1>Musician guess by MUNNUR KARTHIK KUMAR</h1>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_Name" id="some_id">Enter the secret musician name </label>
+    <input type ="password" id="form1_name" name="some_name" min=10 max=50 step=2 value="John Lennon"> <br>
+
+    <label for="form1_guess">Guess the musician</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<div class="container">
+    <img src="NIT.jpg" class="bordered mx-auto d-block" width="100px" height="100px" alt="NIT" id="images" onclick="swapImage()">
+</div>
+
+<script> 
+
+    let useImage = 1
+function swapImage(){
+    switch(useImage){
+        case 1:
+            document.getElementById("images").src="NIT.jpg";
+            useImage+=1;
+            break;
+            case 2:
+            document.getElementById("images").src="NETWINGED.jpg";
+            useImage+=1;
+            break;
+            case 3:
+            document.getElementById("images").src="UNDERWINGED.jpg";
+            useImage=1;
+            break;
+        }
+    }
+    </script>
+
+<script> 
+let correct = 0;
+let wrong = 0;
+function checkGuess() {
+    console.log("Getting form values")
+    musName = document.getElementById("form1_name").value
+    guess = document.getElementById("form1_guess").value
+    
+    out = document.getElementById("result")
+    if(musName==guess){
+        correct = correct+1 ;
+        alert("You got it right");
+        out.innerHTML = correct;
+    } else {
+        wrong = wrong+1;
+        alert("Wrong Musician");
+        out.innerHTML = wrong;
+    }
+}
+
+
+
+</script>
+</body>
+</html> 
